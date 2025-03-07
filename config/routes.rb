@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :prototypes do
     # comments コントローラーを prototypes にネストし、create アクションのみを有効化
     resources :comments, only: [:create]
+
+    # edit アクションと update アクションに必要なルーティングは自動生成されるので追記は不要
   end
   
   # users コントローラーのルーティングを定義

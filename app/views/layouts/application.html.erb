@@ -36,7 +36,7 @@
     </header>
 
      <% if user_signed_in? %>
-      <p>こんにちは、<%= current_user.name %>さん</p>
+        <p>こんにちは、<%= link_to "#{current_user.name}さん", user_path(current_user), class: :greeting__link %></p>
     <% end %>
     <%= yield %>
 

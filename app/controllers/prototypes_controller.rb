@@ -12,6 +12,20 @@ class PrototypesController < ApplicationController
     @prototype = Prototype.new
   end
 
+  def edit
+    @prototype = Prototype.find(params[:id])
+  end
+  
+
+  def update
+    @prototype = Prototype.find(params[:id])
+    if @prototype.update(prototype_params)
+      redirect_to prototype_path(@prototype), notice: '更新が完了しました！'
+    else
+      render :edit
+    end
+  end
+
   def create
     # 新しい投稿を作成するための処理
     @prototype = Prototype.new(prototype_params)
